@@ -2,8 +2,8 @@ package com.example.prog4.controller;
 
 import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.controller.validator.EmployeeValidator;
-import com.example.prog4.model.Employee;
-import com.example.prog4.model.EmployeeFilter;
+import com.example.prog4.model.core.dto.management.Employee;
+import com.example.prog4.model.core.dto.management.EmployeeFilter;
 import com.example.prog4.service.CSVUtils;
 import com.example.prog4.service.EmployeeService;
 import jakarta.servlet.http.HttpSession;
@@ -13,7 +13,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,7 +51,7 @@ public class EmployeeController {
     @PostMapping("/createOrUpdate")
     public String saveOne(@ModelAttribute Employee employee) {
         employeeValidator.validate(employee);
-        com.example.prog4.repository.entity.Employee domain = employeeMapper.toDomain(employee);
+        com.example.prog4.model.core.entity.management.Employee domain = employeeMapper.toDomain(employee);
         employeeService.saveOne(domain);
         return "redirect:/employee/list";
     }

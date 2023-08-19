@@ -1,23 +1,36 @@
 package com.example.prog4.model.core.entity.management;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.ToString;
 
-import java.io.Serializable;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
-@Getter
-@Setter
+@Data
 @Builder
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Phone implements Serializable {
+@Entity
+@Table(name = "\"phone\"")
+@EqualsAndHashCode
+@ToString
+public class Phone {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
     private String id;
     private String value;
-    private String countryCode;
+    @ManyToOne
+    @JoinColumn(name = "employee_id", referencedColumnName = "id")
+    @JsonIgnore
+    private Employee employee;
 }

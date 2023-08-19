@@ -21,7 +21,7 @@ import static java.util.Objects.requireNonNull;
 @EnableTransactionManagement
 @EnableJpaRepositories(
     entityManagerFactoryRef = "managementEntityManagerFactory",
-    basePackages = {},
+    basePackages = {"com.example.prog4.repository.management"},
     transactionManagerRef = "managementTransactionManager"
 )
 @RequiredArgsConstructor

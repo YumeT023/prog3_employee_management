@@ -1,6 +1,6 @@
-package com.example.prog4.model.utilities;
+package com.example.prog4.model.utils;
 
-import com.example.prog4.model.exception.BadRequestException;
+import com.example.prog4.model.core.exception.BadRequestException;
 import lombok.Getter;
 
 public record Page(@Getter Integer page) {

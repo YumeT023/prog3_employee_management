@@ -1,4 +1,4 @@
-package com.example.prog4.model.utilities;
+package com.example.prog4.model.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

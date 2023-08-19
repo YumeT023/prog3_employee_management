@@ -1,4 +1,4 @@
-package com.example.prog4.model.message;
+package com.example.prog4.model.utils;
 
 import lombok.Builder;
 import lombok.Data;

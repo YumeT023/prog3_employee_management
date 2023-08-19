@@ -1,7 +1,5 @@
 package com.example.prog4.config;
 
-
-import java.util.Map;
 import javax.sql.DataSource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -17,8 +15,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import static java.util.Objects.requireNonNull;
 
 @Configuration
 @EnableTransactionManagement
@@ -40,17 +36,17 @@ public class CnapsPersistenceConf {
 
   @Bean
   @Primary
-  public LocalContainerEntityManagerFactoryBean cnapsEntityManagerFactoryBean() {
+  public LocalContainerEntityManagerFactoryBean cnapsEntityManagerFactory() {
     var entityManager = new LocalContainerEntityManagerFactoryBean();
     JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 
     entityManager.setDataSource(cnapsDataSource());
     entityManager.setJpaVendorAdapter(vendorAdapter);
     entityManager.setPackagesToScan("com.example.prog4.model.core.entity.cnaps");
-    entityManager.setJpaPropertyMap(Map.of(
-        "hibernate.hbm2ddl.auto", requireNonNull(env.getProperty("common.jpa.hibernate.ddl-auto")),
-        "hibernate.dialect", requireNonNull(env.getProperty("hibernate.dialect"))
-    ));
+//    entityManager.setJpaPropertyMap(Map.of(
+//        "hibernate.hbm2ddl.auto", requireNonNull(env.getProperty("common.jpa.hibernate.ddl-auto")),
+//        "hibernate.dialect", requireNonNull(env.getProperty("hibernate.dialect"))
+//    ));
 
     return entityManager;
   }
@@ -59,7 +55,7 @@ public class CnapsPersistenceConf {
   @Primary
   public PlatformTransactionManager cnapsTransactionManager() {
     var transactionManager = new JpaTransactionManager();
-    transactionManager.setEntityManagerFactory(cnapsEntityManagerFactoryBean().getObject());
+    transactionManager.setEntityManagerFactory(cnapsEntityManagerFactory().getObject());
     return transactionManager;
   }
 }

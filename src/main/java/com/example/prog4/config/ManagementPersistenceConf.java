@@ -1,6 +1,5 @@
 package com.example.prog4.config;
 
-import java.util.Map;
 import javax.sql.DataSource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -39,17 +38,17 @@ public class ManagementPersistenceConf {
   }
 
   @Bean
-  public LocalContainerEntityManagerFactoryBean managementEntityManagerFactoryBean() {
+  public LocalContainerEntityManagerFactoryBean managementEntityManagerFactory() {
     var entityManager = new LocalContainerEntityManagerFactoryBean();
     JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 
     entityManager.setDataSource(managementDataSource());
     entityManager.setJpaVendorAdapter(vendorAdapter);
     entityManager.setPackagesToScan("com.example.prog4.model.core.entity.management");
-    entityManager.setJpaPropertyMap(Map.of(
-        "hibernate.hbm2ddl.auto", requireNonNull(env.getProperty("common.jpa.hibernate.ddl-auto")),
-        "hibernate.dialect", requireNonNull(env.getProperty("hibernate.dialect"))
-    ));
+//    entityManager.setJpaPropertyMap(Map.of(
+//        "hibernate.hbm2ddl.auto", requireNonNull(env.getProperty("common.jpa.hibernate.ddl-auto")),
+//        "hibernate.dialect", requireNonNull(env.getProperty("hibernate.dialect"))
+//    ));
 
     return entityManager;
   }
@@ -57,7 +56,7 @@ public class ManagementPersistenceConf {
   @Bean
   public PlatformTransactionManager managementTransactionManager() {
     var transactionManager = new JpaTransactionManager();
-    transactionManager.setEntityManagerFactory(managementEntityManagerFactoryBean().getObject());
+    transactionManager.setEntityManagerFactory(managementEntityManagerFactory().getObject());
     return transactionManager;
   }
 }

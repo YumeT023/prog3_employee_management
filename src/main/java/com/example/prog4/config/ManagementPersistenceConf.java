@@ -2,6 +2,7 @@ package com.example.prog4.config;
 
 import javax.sql.DataSource;
 import lombok.RequiredArgsConstructor;
+import org.flywaydb.core.Flyway;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -37,6 +38,16 @@ public class ManagementPersistenceConf {
     dataSource.setUsername(env.getProperty("management.datasource.username"));
     dataSource.setPassword(env.getProperty("management.datasource.password"));
     return dataSource;
+  }
+
+  @Bean
+  public Flyway managementFlyway() {
+    Flyway flyway = Flyway.configure()
+        .dataSource(managementDataSource())
+        .locations("classpath:db/migration/management")
+        .load();
+    flyway.migrate();
+    return flyway;
   }
 
   @Bean

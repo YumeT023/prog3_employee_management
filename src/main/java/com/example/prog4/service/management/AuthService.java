@@ -1,4 +1,4 @@
-package com.example.prog4.service;
+package com.example.prog4.service.management;
 
 import com.example.prog4.model.core.exception.ForbiddenException;
 import com.example.prog4.repository.management.SessionRepository;

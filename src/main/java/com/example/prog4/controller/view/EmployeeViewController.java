@@ -4,7 +4,7 @@ import com.example.prog4.controller.PopulateController;
 import com.example.prog4.controller.mapper.EmployeeMapper;
 import com.example.prog4.model.core.dto.management.Employee;
 import com.example.prog4.model.core.dto.management.EmployeeFilter;
-import com.example.prog4.service.EmployeeService;
+import com.example.prog4.service.management.EmployeeService;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;

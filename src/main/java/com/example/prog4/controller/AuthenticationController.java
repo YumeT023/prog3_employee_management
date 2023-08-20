@@ -1,7 +1,7 @@
 package com.example.prog4.controller;
 
 import com.example.prog4.model.core.entity.management.User;
-import com.example.prog4.service.AuthService;
+import com.example.prog4.service.management.AuthService;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;

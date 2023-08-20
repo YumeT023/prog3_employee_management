@@ -4,6 +4,7 @@ import javax.sql.DataSource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -28,6 +29,7 @@ public class ManagementPersistenceConf {
   private final Environment env;
 
   @Bean
+  @Primary
   public DataSource managementDataSource() {
     var dataSource = new DriverManagerDataSource();
     dataSource.setDriverClassName(requireNonNull(env.getProperty("common.datasource.driver-class-name")));
@@ -38,6 +40,7 @@ public class ManagementPersistenceConf {
   }
 
   @Bean
+  @Primary
   public LocalContainerEntityManagerFactoryBean managementEntityManagerFactory() {
     var entityManager = new LocalContainerEntityManagerFactoryBean();
     JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -54,6 +57,7 @@ public class ManagementPersistenceConf {
   }
 
   @Bean
+  @Primary
   public PlatformTransactionManager managementTransactionManager() {
     var transactionManager = new JpaTransactionManager();
     transactionManager.setEntityManagerFactory(managementEntityManagerFactory().getObject());

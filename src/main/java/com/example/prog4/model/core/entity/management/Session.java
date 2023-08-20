@@ -1,5 +1,6 @@
 package com.example.prog4.model.core.entity.management;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -29,6 +30,7 @@ public class Session {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private String id;
+    @Column(name = "session_id")
     private String sessionId;
     private LocalDateTime timeout;
     @ManyToOne

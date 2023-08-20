@@ -6,7 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -28,14 +27,12 @@ public class CnapsPersistenceConf {
   private final Environment env;
 
   @Bean
-  @Primary
   @ConfigurationProperties(prefix = "cnaps.datasource")
   public DataSource cnapsDataSource() {
     return DataSourceBuilder.create().build();
   }
 
   @Bean
-  @Primary
   public LocalContainerEntityManagerFactoryBean cnapsEntityManagerFactory() {
     var entityManager = new LocalContainerEntityManagerFactoryBean();
     JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
@@ -52,7 +49,6 @@ public class CnapsPersistenceConf {
   }
 
   @Bean
-  @Primary
   public PlatformTransactionManager cnapsTransactionManager() {
     var transactionManager = new JpaTransactionManager();
     transactionManager.setEntityManagerFactory(cnapsEntityManagerFactory().getObject());

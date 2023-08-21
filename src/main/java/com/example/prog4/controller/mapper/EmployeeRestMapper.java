@@ -18,7 +18,7 @@ import java.util.Optional;
 @Component
 @AllArgsConstructor
 @Transactional
-public class EmployeeMapper {
+public class EmployeeRestMapper {
     private PositionRepository positionRepository;
     private PhoneMapper phoneMapper;
 

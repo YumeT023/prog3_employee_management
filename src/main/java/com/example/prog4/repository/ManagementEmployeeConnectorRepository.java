@@ -2,6 +2,7 @@ package com.example.prog4.repository;
 
 import com.example.prog4.model.core.entity.management.Employee;
 import com.example.prog4.model.core.exception.NotFoundException;
+import com.example.prog4.model.core.mapper.EmployeeMapper;
 import com.example.prog4.repository.management.ManagementEmployeeJpaRepository;
 import com.example.prog4.repository.model.EmployeeConnector;
 import lombok.AllArgsConstructor;
@@ -11,16 +12,12 @@ import org.springframework.stereotype.Repository;
 @AllArgsConstructor
 public class ManagementEmployeeConnectorRepository implements EmployeeConnectorRepository {
   private final ManagementEmployeeJpaRepository jpaRepository;
+  private final EmployeeMapper mapper;
 
   @Override
   public EmployeeConnector findById(String id) {
     return jpaRepository.findById(id)
-        .map(employee ->
-            EmployeeConnector.builder()
-                .endToEndId(employee.getId())
-                .id(null)
-                .build()
-        )
+        .map(mapper::toConnector)
         .orElseThrow(() -> new NotFoundException("ManagementEmployee(id=" + id + " not found)"));
   }
 
@@ -32,6 +29,6 @@ public class ManagementEmployeeConnectorRepository implements EmployeeConnectorR
   @Override
   public EmployeeConnector save(Employee employee) {
     var saved = jpaRepository.save(employee);
-    return EmployeeConnector.builder().endToEndId(saved.getId()).build();
+    return mapper.toConnector(saved);
   }
 }

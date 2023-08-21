@@ -19,7 +19,7 @@ public class EmployeeService {
   private EmployeeManagerDao employeeManagerDao;
 
   public Employee getOne(String id) {
-    return repository.findById(id).orElseThrow(() -> new NotFoundException("Not found id=" + id));
+    return repository.findById(id);
   }
 
   public List<Employee> getAll(EmployeeFilter filter) {

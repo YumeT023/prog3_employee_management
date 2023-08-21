@@ -1,6 +1,6 @@
 package com.example.prog4.controller;
 
-import com.example.prog4.controller.mapper.EmployeeMapper;
+import com.example.prog4.controller.mapper.EmployeeRestMapper;
 import com.example.prog4.controller.validator.EmployeeValidator;
 import com.example.prog4.model.core.dto.management.Employee;
 import com.example.prog4.model.core.dto.management.EmployeeFilter;
@@ -24,7 +24,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("/server/employee")
 public class EmployeeController {
-    private EmployeeMapper employeeMapper;
+    private EmployeeRestMapper employeeMapper;
     private EmployeeValidator employeeValidator;
     private EmployeeService employeeService;
 

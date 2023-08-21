@@ -1,7 +1,7 @@
 package com.example.prog4.controller.view;
 
 import com.example.prog4.controller.PopulateController;
-import com.example.prog4.controller.mapper.EmployeeMapper;
+import com.example.prog4.controller.mapper.EmployeeRestMapper;
 import com.example.prog4.model.core.dto.management.Employee;
 import com.example.prog4.model.core.dto.management.EmployeeFilter;
 import com.example.prog4.service.management.EmployeeService;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @AllArgsConstructor
 public class EmployeeViewController extends PopulateController {
     private EmployeeService employeeService;
-    private EmployeeMapper employeeMapper;
+    private EmployeeRestMapper employeeMapper;
 
     @GetMapping("/list")
     public String getAll(

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" th:href="@{/styles/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/styles/index.css}">
-    <script th:src="@{/scripts/bootstrap.bundle.min.js}" defer></script>
+    <script defer th:src="@{/scripts/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
 <header th:replace="~{components/navbar.html :: navbar('list')}"></header>
@@ -23,74 +23,74 @@
     </div>
     <!--        filters-->
     <div class="container mt-3">
-        <form action="/employee/list" class="row g-3" th:object="${employeeFilters}" method="get">
+        <form action="/employee/list" class="row g-3" method="get" th:object="${employeeFilters}">
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="firstName" class="form-label">First name</label>
-                <input type="text" th:field="*{firstName}" class="form-control" name="firstName" id="firstName"/>
+                <label class="form-label" for="firstName">First name</label>
+                <input class="form-control" id="firstName" name="firstName" th:field="*{firstName}" type="text"/>
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="lastName" class="form-label">Last name</label>
-                <input type="text" th:field="*{lastName}" name="lastName" class="form-control" id="lastName"/>
+                <label class="form-label" for="lastName">Last name</label>
+                <input class="form-control" id="lastName" name="lastName" th:field="*{lastName}" type="text"/>
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="countryCode" class="form-label">Country Code</label>
-                <input type="text" th:field="*{countryCode}" name="countryCode" class="form-control" id="countryCode"/>
+                <label class="form-label" for="countryCode">Country Code</label>
+                <input class="form-control" id="countryCode" name="countryCode" th:field="*{countryCode}" type="text"/>
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="sex" class="form-label">Sex</label>
-                <select id="sex" th:field="*{sex}" name="sex" class="form-select">
+                <label class="form-label" for="sex">Sex</label>
+                <select class="form-select" id="sex" name="sex" th:field="*{sex}">
                     <option selected th:value="${null}">Chose your sex</option>
-                    <option th:value="${sex}" th:text="${sex}"
-                            th:each="sex : ${T(com.example.prog4.model.core.entity.management.enums.Sex).values()}"></option>
+                    <option th:each="sex : ${T(com.example.prog4.model.core.enums.Sex).values()}" th:text="${sex}"
+                            th:value="${sex}"></option>
                 </select>
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="entrance.begin" class="form-label">Entrance beginning date</label>
-                <input type="date" th:field="*{entrance.begin}" name="entrance.begin" class="form-control"
-                       id="entrance.begin">
+                <label class="form-label" for="entrance.begin">Entrance beginning date</label>
+                <input class="form-control" id="entrance.begin" name="entrance.begin" th:field="*{entrance.begin}"
+                       type="date">
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="entrance.end" class="form-label">Entrance ending date</label>
-                <input type="date" th:field="*{entrance.end}" name="entrance.end" class="form-control"
-                       id="entrance.end">
+                <label class="form-label" for="entrance.end">Entrance ending date</label>
+                <input class="form-control" id="entrance.end" name="entrance.end" th:field="*{entrance.end}"
+                       type="date">
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="departure.begin" class="form-label">Departure beginning date</label>
-                <input type="date" th:field="*{departure.begin}" name="departure.begin" class="form-control"
-                       id="departure.begin">
+                <label class="form-label" for="departure.begin">Departure beginning date</label>
+                <input class="form-control" id="departure.begin" name="departure.begin" th:field="*{departure.begin}"
+                       type="date">
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="departure.end" class="form-label">Departure ending date</label>
-                <input type="date" th:field="*{departure.end}" name="departure.end"
-                       class="form-control" id="departure.end">
+                <label class="form-label" for="departure.end">Departure ending date</label>
+                <input class="form-control" id="departure.end" name="departure.end"
+                       th:field="*{departure.end}" type="date">
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="page" class="form-label">Page</label>
-                <input type="number" th:field="*{page}" min="1" name="page" class="form-control"
-                       id="page">
+                <label class="form-label" for="page">Page</label>
+                <input class="form-control" id="page" min="1" name="page" th:field="*{page}"
+                       type="number">
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="perPage" class="form-label">Per page</label>
-                <input type="number" th:field="*{perPage}" min="5" name="perPage" class="form-control"
-                       id="perPage">
+                <label class="form-label" for="perPage">Per page</label>
+                <input class="form-control" id="perPage" min="5" name="perPage" th:field="*{perPage}"
+                       type="number">
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="orderBy" class="form-label">OrderBy</label>
-                <select id="orderBy" th:field="*{orderBy}" name="orderBy" class="form-select">
+                <label class="form-label" for="orderBy">OrderBy</label>
+                <select class="form-select" id="orderBy" name="orderBy" th:field="*{orderBy}">
                     <option th:each="orderByEnum : ${T(com.example.prog4.model.enums.EmployeeSortField).values()}"
-                            th:value="${orderByEnum}"
-                            th:text="${orderByEnum}"></option>
+                            th:text="${orderByEnum}"
+                            th:value="${orderByEnum}"></option>
                 </select>
             </div>
             <div class="col-md-4 col-12 col-sm-6">
-                <label for="orderDirection" class="form-label">orderDirection</label>
-                <select id="orderDirection" th:field="*{orderDirection}" name="orderBy"
-                        class="form-select">
-                    <option th:each="dir : ${directions}" th:value="${dir}" th:text="${dir}"></option>
+                <label class="form-label" for="orderDirection">orderDirection</label>
+                <select class="form-select" id="orderDirection" name="orderBy"
+                        th:field="*{orderDirection}">
+                    <option th:each="dir : ${directions}" th:text="${dir}" th:value="${dir}"></option>
                 </select>
             </div>
             <div class="my-3 col-12">
-                <button type="submit" class="btn btn-primary">Filter</button>
+                <button class="btn btn-primary" type="submit">Filter</button>
             </div>
         </form>
     </div>
@@ -110,12 +110,12 @@
             </thead>
             <tbody>
             <tr th:each="employee : *{employees}">
-                <td><img class="img-list" th:src="*{employee.stringImage}" alt="no image"></td>
+                <td><img alt="no image" class="img-list" th:src="*{employee.stringImage}"></td>
                 <td><p th:text="*{employee.lastName}"></p></td>
                 <td><p th:text="*{employee.firstName}"></p></td>
                 <td><p th:text="*{employee.sex.toString()}"></p></td>
-                <td><p th:each="position : *{employee.positions}" th:text="*{position.name}"
-                       class="p-2 rounded-3 bg-body m-2"></p></td>
+                <td><p class="p-2 rounded-3 bg-body m-2" th:each="position : *{employee.positions}"
+                       th:text="*{position.name}"></p></td>
                 <td><p th:text="*{employee.entranceDate.toString()}"></p></td>
                 <td><p th:text="*{employee.departureDate.toString()}"></p></td>
                 <td>

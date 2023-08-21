@@ -1,4 +1,4 @@
-package com.example.prog4.model.core.entity.management.enums;
+package com.example.prog4.model.core.enums;
 
 public enum Csp {
     AGRICULTURAL_WORKERS,

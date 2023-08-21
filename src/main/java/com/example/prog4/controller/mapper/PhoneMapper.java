@@ -1,8 +1,8 @@
 package com.example.prog4.controller.mapper;
 
-import com.example.prog4.model.exception.BadRequestException;
-import com.example.prog4.repository.PhoneRepository;
-import com.example.prog4.repository.entity.Phone;
+import com.example.prog4.model.core.exception.BadRequestException;
+import com.example.prog4.repository.management.PhoneRepository;
+import com.example.prog4.model.core.entity.management.Phone;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +14,7 @@ public class PhoneMapper {
     private static final String JOIN_ELEMENT = ",";
     private PhoneRepository phoneRepository;
 
-    public Phone toDomain(com.example.prog4.model.Phone fromView, String employeeId) {
+    public Phone toDomain(com.example.prog4.model.core.dto.management.Phone fromView, String employeeId) {
         String valueFromView = createPhoneValue(fromView.getValue(), fromView.getCountryCode());
 
         if(fromView.getId() == null){
@@ -33,8 +33,8 @@ public class PhoneMapper {
         }
     }
 
-    public com.example.prog4.model.Phone toView(Phone fromDomain) {
-        return com.example.prog4.model.Phone.builder()
+    public com.example.prog4.model.core.dto.management.Phone toView(Phone fromDomain) {
+        return com.example.prog4.model.core.dto.management.Phone.builder()
                 .id(fromDomain.getId())
                 .countryCode(getViewCountryCode(fromDomain.getValue()))
                 .value(getViewValue(fromDomain.getValue()))

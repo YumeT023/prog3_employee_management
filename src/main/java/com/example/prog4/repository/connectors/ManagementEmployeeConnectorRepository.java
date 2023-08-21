@@ -6,6 +6,7 @@ import com.example.prog4.model.core.mapper.EmployeeMapper;
 import com.example.prog4.repository.jpa.management.ManagementEmployeeJpaRepository;
 import com.example.prog4.repository.model.EmployeeConnector;
 import lombok.AllArgsConstructor;
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 public class ManagementEmployeeConnectorRepository implements EmployeeConnectorRepository {
   private final ManagementEmployeeJpaRepository jpaRepository;
   private final EmployeeMapper mapper;
+  private final static String NOT_IMPLEMENTED = "NotImplemented: only 'findById' and 'save' are";
 
   @Override
   public EmployeeConnector findById(String id) {
@@ -23,7 +25,7 @@ public class ManagementEmployeeConnectorRepository implements EmployeeConnectorR
 
   @Override
   public EmployeeConnector findByE2EId(String e2eId) {
-    return null;
+    throw new NotImplementedException(NOT_IMPLEMENTED);
   }
 
   @Override

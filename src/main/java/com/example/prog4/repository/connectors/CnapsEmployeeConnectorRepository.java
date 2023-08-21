@@ -7,6 +7,7 @@ import com.example.prog4.repository.jpa.cnaps.CnapsEmployeeJpaRepository;
 import com.example.prog4.repository.model.EmployeeConnector;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.NotImplementedException;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -15,10 +16,11 @@ import org.springframework.stereotype.Repository;
 public class CnapsEmployeeConnectorRepository implements EmployeeConnectorRepository {
   private final CnapsEmployeeJpaRepository jpaRepository;
   private final EmployeeMapper mapper;
+  private final static String NOT_IMPLEMENTED = "NotImplemented: only 'findByE2E_Id' is";
 
   @Override
   public EmployeeConnector findById(String id) {
-    return null;
+    throw new NotImplementedException(NOT_IMPLEMENTED);
   }
 
   @Override
@@ -30,6 +32,6 @@ public class CnapsEmployeeConnectorRepository implements EmployeeConnectorReposi
 
   @Override
   public EmployeeConnector save(Employee employee) {
-    return null;
+    throw new NotImplementedException(NOT_IMPLEMENTED);
   }
 }

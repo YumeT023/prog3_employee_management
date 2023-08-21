@@ -1,9 +1,9 @@
-package com.example.prog4.repository;
+package com.example.prog4.repository.connectors;
 
 import com.example.prog4.model.core.entity.management.Employee;
 import com.example.prog4.model.core.exception.NotFoundException;
 import com.example.prog4.model.core.mapper.EmployeeMapper;
-import com.example.prog4.repository.management.ManagementEmployeeJpaRepository;
+import com.example.prog4.repository.jpa.management.ManagementEmployeeJpaRepository;
 import com.example.prog4.repository.model.EmployeeConnector;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;

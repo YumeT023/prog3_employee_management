@@ -1,4 +1,4 @@
-package com.example.prog4.repository.cnaps;
+package com.example.prog4.repository.jpa.cnaps;
 
 import com.example.prog4.model.core.entity.cnaps.Employee;
 import java.util.Optional;

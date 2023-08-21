@@ -1,11 +1,10 @@
-package com.example.prog4.repository;
+package com.example.prog4.repository.connectors;
 
 import com.example.prog4.model.core.entity.management.Employee;
 import com.example.prog4.model.core.exception.NotFoundException;
 import com.example.prog4.model.core.mapper.EmployeeMapper;
-import com.example.prog4.repository.cnaps.CnapsEmployeeJpaRepository;
+import com.example.prog4.repository.jpa.cnaps.CnapsEmployeeJpaRepository;
 import com.example.prog4.repository.model.EmployeeConnector;
-import com.fasterxml.jackson.core.sym.Name1;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;

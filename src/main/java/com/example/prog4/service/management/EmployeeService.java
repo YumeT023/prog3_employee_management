@@ -2,9 +2,8 @@ package com.example.prog4.service.management;
 
 import com.example.prog4.model.core.dto.management.EmployeeFilter;
 import com.example.prog4.model.core.entity.management.Employee;
-import com.example.prog4.model.core.exception.NotFoundException;
 import com.example.prog4.repository.EmployeeRepository;
-import com.example.prog4.repository.management.dao.EmployeeManagerDao;
+import com.example.prog4.repository.jpa.management.dao.EmployeeManagerDao;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.PageRequest;

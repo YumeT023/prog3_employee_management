@@ -1,4 +1,4 @@
-package com.example.prog4.repository;
+package com.example.prog4.repository.connectors;
 
 import com.example.prog4.model.core.entity.management.Employee;
 import com.example.prog4.repository.model.EmployeeConnector;

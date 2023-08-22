@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @EnableJpaRepositories(
     entityManagerFactoryRef = "cnapsEntityManagerFactory",
-    basePackages = {"com.example.prog4.repository.cnaps"},
+    basePackages = {"com.example.prog4.repository.jpa.cnaps"},
     transactionManagerRef = "cnapsTransactionManager"
 )
 @RequiredArgsConstructor

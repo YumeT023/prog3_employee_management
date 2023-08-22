@@ -29,7 +29,7 @@ import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Data
 @Entity
-@Builder
+@Builder(toBuilder = true)
 @ToString
 @NoArgsConstructor
 @EqualsAndHashCode

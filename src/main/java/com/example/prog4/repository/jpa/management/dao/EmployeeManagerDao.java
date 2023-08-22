@@ -1,4 +1,4 @@
-package com.example.prog4.repository.management.dao;
+package com.example.prog4.repository.jpa.management.dao;
 
 import com.example.prog4.model.core.entity.management.Employee;
 import com.example.prog4.model.core.enums.Sex;

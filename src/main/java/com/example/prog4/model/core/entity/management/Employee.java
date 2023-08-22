@@ -13,6 +13,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
@@ -40,6 +41,7 @@ public class Employee implements Serializable {
   private String id;
 
   private String cin;
+  @Transient /* TODO: maybe separate entity from internal model */
   private String cnaps;
   private String image;
   private String address;

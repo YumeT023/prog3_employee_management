@@ -2,9 +2,9 @@ package com.example.prog4.controller.mapper;
 
 import com.example.prog4.model.core.dto.management.Employee;
 import com.example.prog4.model.core.exception.BadRequestException;
-import com.example.prog4.repository.management.PositionRepository;
 import com.example.prog4.model.core.entity.management.Phone;
 import com.example.prog4.model.core.entity.management.Position;
+import com.example.prog4.repository.jpa.management.PositionRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;

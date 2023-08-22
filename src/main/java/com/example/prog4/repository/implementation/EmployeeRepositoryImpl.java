@@ -15,26 +15,28 @@ import org.springframework.stereotype.Repository;
 @AllArgsConstructor
 @Slf4j
 public class EmployeeRepositoryImpl implements EmployeeRepository {
-  private final EmployeeConnectorRepository connectorRepository;
+  private final EmployeeConnectorRepository repository;
   private final ManagementEmployeeJpaRepository jpaRepository;
 
   @Override
   public Employee save(Employee employee) {
     var saved = jpaRepository.save(employee);
-    return combineConnector(connectorRepository.findByE2EId(saved.getId()), saved);
+    return combineConnector(repository.findByE2EId(saved.getId()), saved);
   }
 
   @Override
   public Employee findById(String id) {
-    var employee = connectorRepository.findById(id);
-    return convertConnector(connectorRepository.findByE2EId(employee.getId()));
+    var connector = repository.findByE2EId(id);
+    return connector != null
+        ? convertConnector(connector)
+        : convertConnector(EmployeeConnector.builder().endToEndId(id).build());
   }
 
   @Override
   public List<Employee> findAll() {
     return jpaRepository.findAll()
         .stream()
-        .map(employee -> combineConnector(connectorRepository.findByE2EId(employee.getId()), employee))
+        .map(employee -> combineConnector(repository.findByE2EId(employee.getId()), employee))
         .toList();
   }
 
@@ -47,7 +49,7 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
   private Employee combineConnector(EmployeeConnector connector, Employee employee) {
     return employee.toBuilder()
-        .cnaps(connector.getCnaps())
+        .cnaps(connector != null ? connector.getCnaps() : null)
         .build();
   }
 }

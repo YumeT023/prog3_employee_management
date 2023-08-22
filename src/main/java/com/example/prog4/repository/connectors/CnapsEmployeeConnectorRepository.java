@@ -27,7 +27,7 @@ public class CnapsEmployeeConnectorRepository implements EmployeeConnectorReposi
   public EmployeeConnector findByE2EId(String e2eId) {
     return jpaRepository.findByEndToEndId(e2eId)
         .map(employee -> mapper.toConnector(employee, e2eId))
-        .orElseThrow(() -> new NotFoundException("CnapsEmployee(e2eId=" + e2eId + " not found)"));
+        .orElse(null);
   }
 
   @Override

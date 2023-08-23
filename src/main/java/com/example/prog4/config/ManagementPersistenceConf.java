@@ -22,7 +22,7 @@ import static java.util.Objects.requireNonNull;
 @EnableTransactionManagement
 @EnableJpaRepositories(
     entityManagerFactoryRef = "managementEntityManagerFactory",
-    basePackages = {"com.example.prog4.repository.management"},
+    basePackages = {"com.example.prog4.repository.jpa.management"},
     transactionManagerRef = "managementTransactionManager"
 )
 @RequiredArgsConstructor

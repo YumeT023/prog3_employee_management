@@ -2,7 +2,7 @@ package com.example.prog4.service.management;
 
 import com.example.prog4.model.core.dto.management.EmployeeFilter;
 import com.example.prog4.model.core.entity.management.Employee;
-import com.example.prog4.repository.EmployeRepository;
+import com.example.prog4.repository.EmployeeRepository;
 import com.example.prog4.repository.management.dao.EmployeeManagerDao;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class EmployeeService {
-  private EmployeRepository repository;
+  private EmployeeRepository repository;
   private EmployeeManagerDao employeeManagerDao;
 
   public Employee getOne(String id) {

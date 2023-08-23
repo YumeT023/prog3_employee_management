@@ -1,10 +1,10 @@
 package com.example.prog4.service.management;
 
 import com.example.prog4.model.core.exception.ForbiddenException;
-import com.example.prog4.repository.management.SessionRepository;
-import com.example.prog4.repository.management.UserRepository;
 import com.example.prog4.model.core.entity.management.Session;
 import com.example.prog4.model.core.entity.management.User;
+import com.example.prog4.repository.jpa.management.SessionRepository;
+import com.example.prog4.repository.jpa.management.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

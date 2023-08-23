@@ -1,7 +1,7 @@
 package com.example.prog4.service.management;
 
-import com.example.prog4.repository.management.PositionRepository;
 import com.example.prog4.model.core.entity.management.Position;
+import com.example.prog4.repository.jpa.management.PositionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
